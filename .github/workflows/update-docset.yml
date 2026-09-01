@@ -27,11 +27,6 @@ jobs:
 
             # Create PR
 
-            - name: Sync contributions repo
-              run: gh repo sync cvn/Dash-User-Contributions -b master --force
-              env:
-                GITHUB_TOKEN: ${{ secrets.DASH_REPO_TOKEN }}
-
             - name: Checkout code
               uses: actions/checkout@v4
               with:
