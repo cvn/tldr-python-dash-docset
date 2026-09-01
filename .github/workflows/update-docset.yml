@@ -66,3 +66,11 @@ jobs:
                   --body "This is an automated update created by [a workflow](https://github.com/cvn/tldr-python-dash-docset/actions/workflows/update-docset.yml)."
               env:
                 GITHUB_TOKEN: ${{ secrets.DASH_REPO_TOKEN }}
+
+    workflow-keepalive:
+        if: github.event_name == 'schedule'
+        runs-on: ubuntu-latest
+        permissions:
+            actions: write
+        steps:
+            - uses: liskin/gh-workflow-keepalive@v1
